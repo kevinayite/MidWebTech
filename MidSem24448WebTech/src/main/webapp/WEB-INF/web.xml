@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <display-name>MidSem24448WebTech</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>RegisterUser</display-name>
+    <servlet-name>RegisterUser</servlet-name>
+    <servlet-class>utilisateur.RegisterUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterUser</servlet-name>
+    <url-pattern>/RegisterUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterStudent</display-name>
+    <servlet-name>RegisterStudent</servlet-name>
+    <servlet-class>student.RegisterStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterStudent</servlet-name>
+    <url-pattern>/RegisterStudent</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>AuthorizeFilter</display-name>
+    <filter-name>AuthorizeFilter</filter-name>
+    <filter-class>utilisateur.AuthorizeFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthorizeFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <!-- <url-pattern>/*</url-pattern> -->
+  </filter-mapping>
+  
+  
+<servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>utilisateur.LogOutUser</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+</servlet-mapping>
+
+
+ <servlet>
+  <servlet-name>oublier</servlet-name>
+  <servlet-class>utilisateur.ForgotServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>oublier</servlet-name>
+   <url-pattern>/forgo</url-pattern>
+  </servlet-mapping>
+
+
+    
+   <error-page>
+   <error-code>404</error-code>
+   <location>/404.html</location>
+  </error-page>
+   
+  <error-page>
+   <error-code>500</error-code>
+   <location>/500.html</location>
+  </error-page>
+  
+<!--   <error-page>
+   <exception-type>java.lang.Throwable</exception-type >
+   <location>/erroHandling</location>
+   </error-page>  -->
+   
+   
+<!--    <listener>
+    <listener-class>SessionTimeoutListener</listener-class>
+</listener> -->
+
+
+<!-- <filter>
+    <filter-name>SessionTimeoutFilter</filter-name>
+    <filter-class>SessionTimeoutFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>SessionTimeoutFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping> -->
+
+
+<listener>
+    <listener-class>utilisateur.SessionListener</listener-class>
+</listener>
+
+  
+</web-app>
