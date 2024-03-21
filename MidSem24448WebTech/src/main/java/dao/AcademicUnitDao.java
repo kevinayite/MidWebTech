@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import configuration.HibernateUtility;
-import jakarta.persistence.Query;
+import javax.persistence.Query;
 import model.AcademicUnit;
 import model.EAcademicUnit;
 
@@ -60,16 +60,26 @@ public class AcademicUnitDao {
         }
     }
     // Find Student By Id
+	/*
+	 * public AcademicUnit findByNames(String name) { try (Session session =
+	 * HibernateUtility.getSession().openSession()) { Query query = (Query) session.
+	 * createQuery("select academic from AcademicUnit academic where academic.name = :name"
+	 * ); query.setParameter("name", name); return (AcademicUnit)
+	 * ((org.hibernate.query.Query<AcademicUnit>) query).uniqueResult(); } catch
+	 * (Exception e) { e.printStackTrace(); return null; } }
+	 */
+    
     public AcademicUnit findByNames(String name) {
         try (Session session = HibernateUtility.getSession().openSession()) {
-            Query query = (Query) session.createQuery("select academic from AcademicUnit academic where academic.name = :name");
+            org.hibernate.query.Query<AcademicUnit> query = session.createQuery("select academic from AcademicUnit academic where academic.name = :name", AcademicUnit.class);
             query.setParameter("name", name);
-            return (AcademicUnit) ((org.hibernate.query.Query<AcademicUnit>) query).uniqueResult();
+            return query.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
+
 
 	 
     

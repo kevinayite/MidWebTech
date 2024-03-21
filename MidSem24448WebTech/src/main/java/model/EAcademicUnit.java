@@ -1,21 +1,17 @@
 package model;
 
 public enum EAcademicUnit {
-	PROGRAM("Program"),
-	FACULTY("Faculty"),
-	DEPARTMENT("Department");
-	
-	private final String info;
+    PROGRAM("Program"),
+    FACULTY("Faculty"),
+    DEPARTMENT("Department");
 
-	EAcademicUnit(String info){
-	    this.info = info;
-	}
+    private final String label;
 
-	public String getInfo() {
-		return info;
-	}
+    EAcademicUnit(String label) {
+        this.label = label;
+    }
 
-	
-
-
+    public String getLabel() {
+        return label;
+    }
 }

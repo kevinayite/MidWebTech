@@ -30,8 +30,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	        
 	        if (email != null || password!=null ||role!=null) {
 
-	            HttpSession session = request.getSession();
-	            session.setAttribute("role", role);
+	            
+	            //session.setAttribute("role", role);
 	        	
 	        	UtilisateurDao userLogin = new UtilisateurDao();
 
@@ -42,21 +42,21 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	        if (authenticatedUser != null) {
 	            
 	        	System.out.println("Success");
+	        	HttpSession session = request.getSession();
 	            session.setAttribute("authenticatedUser", authenticatedUser);
 	            // Redirect to a success page or do further processing
 	            
 	            
 	            // Setting the session's maximum inactive interval based on role
-	            if (role.equals("Admin")) {
-	            	session.setMaxInactiveInterval(3); 
-	            } else if (role.equals("Teacher")) {
-	            	session.setMaxInactiveInterval(60); 
-	            } else if (role.equals("Student")) {
-	            	session.setMaxInactiveInterval(60); 
-	            }
+				
+				  if (role.equals("Admin")) { System.out.println();
+				  session.setMaxInactiveInterval(60); } else if (role.equals("Teacher")) {
+				  session.setMaxInactiveInterval(60); } else if (role.equals("Student")) {
+				  session.setMaxInactiveInterval(60); }
+				 
 	            if (role.equals("Admin")) {
 	            	
-	            	session.setAttribute("lastInteractionTime", System.currentTimeMillis());
+	            	//session.setAttribute("lastInteractionTime", System.currentTimeMillis());
 	                
 	            	RequestDispatcher rd =request.getRequestDispatcher("home.html");
 	   		     	rd.forward(request, response);
@@ -64,14 +64,14 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 	               
 	            } else if (role.equals("Teacher")) {
-	            	RequestDispatcher rd =request.getRequestDispatcher("filtering");
+	            	RequestDispatcher rd =request.getRequestDispatcher("home.html");
 	   		     	rd.forward(request, response);
 	            	
 	            	
 
 	                
 	            } else if (role.equals("Student")) {
-	            	RequestDispatcher rd =request.getRequestDispatcher("filtering");
+	            	RequestDispatcher rd =request.getRequestDispatcher("home.html");
 	   		     	rd.forward(request, response);
 	            	
 	            

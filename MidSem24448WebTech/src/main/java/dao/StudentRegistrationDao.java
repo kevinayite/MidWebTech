@@ -51,7 +51,7 @@ public class StudentRegistrationDao {
     
     
     // Display All Students
-    public List<StudentRegistration> getAllSemesters() {
+    public List<StudentRegistration> getAllStudentRegistration() {
         try (Session session = HibernateUtility.getSession().openSession()) {
             return session.createQuery("FROM StudentRegistration", StudentRegistration.class).list();
         } catch (Exception e) {

@@ -29,16 +29,16 @@
     <servlet-name>RegisterStudent</servlet-name>
     <url-pattern>/RegisterStudent</url-pattern>
   </servlet-mapping>
-  <filter>
+ <!--  <filter>
     <display-name>AuthorizeFilter</display-name>
     <filter-name>AuthorizeFilter</filter-name>
     <filter-class>utilisateur.AuthorizeFilter</filter-class>
-  </filter>
-  <filter-mapping>
+  </filter> -->
+ <!--  <filter-mapping>
     <filter-name>AuthorizeFilter</filter-name>
     <url-pattern>/*</url-pattern>
-    <!-- <url-pattern>/*</url-pattern> -->
-  </filter-mapping>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping> -->
   
   
 <servlet>
@@ -58,7 +58,7 @@
   </servlet>
   <servlet-mapping>
    <servlet-name>oublier</servlet-name>
-   <url-pattern>/forgo</url-pattern>
+   <url-pattern>/forgot</url-pattern>
   </servlet-mapping>
 
 
@@ -94,9 +94,135 @@
 </filter-mapping> -->
 
 
-<listener>
+<!-- <listener>
     <listener-class>utilisateur.SessionListener</listener-class>
-</listener>
+</listener> -->
 
+<servlet>
+    <description></description>
+    <display-name>FilterBackground</display-name>
+    <servlet-name>FilterBackground</servlet-name>
+    <servlet-class>utilisateur.ServletAuthorize</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilterBackground</servlet-name>
+    <url-pattern>/filterBackground</url-pattern>
+  </servlet-mapping>
   
+  <servlet>
+    <description></description>
+    <display-name>FilteringAcademic</display-name>
+    <servlet-name>FilteringAcademic</servlet-name>
+    <servlet-class>utilisateur.AcademicServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilteringAcademic</servlet-name>
+    <url-pattern>/filterAcademic</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>FilteringMedia</display-name>
+    <servlet-name>FilteringMedia</servlet-name>
+    <servlet-class>utilisateur.MediaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilteringMedia</servlet-name>
+    <url-pattern>/filterMedia</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>FilteringApplication</display-name>
+    <servlet-name>FilteringApplication</servlet-name>
+    <servlet-class>utilisateur.ApplicationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilteringApplication</servlet-name>
+    <url-pattern>/filterApplication</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>FilteringRegistration</display-name>
+    <servlet-name>FilteringRegistration</servlet-name>
+    <servlet-class>utilisateur.RegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilteringRegistration</servlet-name>
+    <url-pattern>/filterRegistration</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+     <servlet>
+    <description></description>
+    <display-name>FilteringResearch</display-name>
+    <servlet-name>FilteringResearch</servlet-name>
+    <servlet-class>utilisateur.ResearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilteringResearch</servlet-name>
+    <url-pattern>/filterResearch</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+    <description></description>
+    <display-name>admin1</display-name>
+    <servlet-name>admin1</servlet-name>
+    <servlet-class>utilisateur.AdminUndergraduate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin1</servlet-name>
+    <url-pattern>/filteradmissionUndergraduate</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>admin2</display-name>
+    <servlet-name>admin2</servlet-name>
+    <servlet-class>utilisateur.AdminCampus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin2</servlet-name>
+    <url-pattern>/filterCampuses</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+    <description></description>
+    <display-name>admin3</display-name>
+    <servlet-name>admin3</servlet-name>
+    <servlet-class>utilisateur.AdminLibrary</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin3</servlet-name>
+    <url-pattern>/filterLibrary</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+   <session-config>
+        <session-timeout>1</session-timeout>
+    </session-config>
+  
+  
+ <!--  <listener>
+    <listener-class>utilisateur.SessionTimeoutListener</listener-class>
+  </listener> -->
+  
+<!--    <filter>
+    <filter-name>SessionValidationFilter</filter-name>
+    <filter-class>utilisateur.SessionValidationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SessionValidationFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping> -->
 </web-app>
